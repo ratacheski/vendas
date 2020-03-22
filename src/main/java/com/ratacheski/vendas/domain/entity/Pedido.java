@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Data
@@ -21,4 +22,7 @@ public class Pedido {
 
     @Column(length = 20, precision = 2)
     private BigDecimal total;
+
+    @OneToMany(mappedBy = "pedido")
+    private Set<ItemPedido> itensPedido;
 }
