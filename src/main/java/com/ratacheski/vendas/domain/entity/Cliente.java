@@ -1,12 +1,18 @@
 package com.ratacheski.vendas.domain.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,6 +22,7 @@ public class Cliente {
     private String nome;
 
     @OneToMany(mappedBy = "cliente")
+    @ToString.Exclude
     private Set<Pedido> pedidos;
 
     public Cliente(String nome) {

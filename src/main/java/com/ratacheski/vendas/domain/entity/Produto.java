@@ -1,15 +1,18 @@
 package com.ratacheski.vendas.domain.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,5 +20,6 @@ public class Produto {
 
     private String descricao;
 
+    @Column(precision = 20, scale = 2)
     private BigDecimal precoUnitario;
 }

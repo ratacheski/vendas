@@ -1,6 +1,9 @@
 package com.ratacheski.vendas.domain.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -8,7 +11,10 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,9 +26,10 @@ public class Pedido {
 
     private LocalDate dataPedido;
 
-    @Column(length = 20, precision = 2)
+    @Column(precision = 20, scale = 2)
     private BigDecimal total;
 
     @OneToMany(mappedBy = "pedido")
+    @ToString.Exclude
     private Set<ItemPedido> itensPedido;
 }

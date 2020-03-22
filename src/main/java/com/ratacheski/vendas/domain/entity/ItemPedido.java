@@ -1,11 +1,17 @@
 package com.ratacheski.vendas.domain.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class ItemPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
